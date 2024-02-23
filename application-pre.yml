@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-pre
+  namespace: argocd
+  labels:
+    name: app-pre
+spec:
+  project: bigbang
+  source:
+    repoURL: https://github.com/jsaulalonso/gitops.git
+    targetRevision: develop
+    path: app
+    helm:
+      valueFiles:
+        - values/pre.yml
+  destination:
+    server: https://kubernetes.default.svc.cluster.local
+    namespace: bigbang-pre
+  syncPolicy:
+    automated:
+    syncOptions:
+      - CreateNamespace=true
