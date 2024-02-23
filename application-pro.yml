@@ -15,9 +15,9 @@ spec:
       valueFiles:
         - values/pro.yml
   destination:
-    server: https://kubernetes.default.svc.cluster.local
+    server: https://kubernetes.default.svc
     namespace: bigbang
   syncPolicy:
-    automated:
+    automated: {}
     syncOptions:
       - CreateNamespace=true
