@@ -6,14 +6,14 @@ metadata:
   labels:
     name: app
 spec:
-  project: bigbang
+  project: default
   source:
     repoURL: https://github.com/jsaulalonso/gitops.git
     targetRevision: main
     path: app
     helm:
       valueFiles:
-        - values/pre.yml
+        - values/pro.yml
   destination:
     server: https://kubernetes.default.svc.cluster.local
     namespace: bigbang
